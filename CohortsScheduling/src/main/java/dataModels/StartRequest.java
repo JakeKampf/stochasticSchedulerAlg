@@ -1,4 +1,4 @@
-package DataModels;
+package dataModels;
 import java.util.List;
 import org.springframework.web.multipart.*;
 public class StartRequest {

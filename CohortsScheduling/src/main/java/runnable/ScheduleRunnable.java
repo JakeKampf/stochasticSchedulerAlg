@@ -1,4 +1,4 @@
-package scheduler;
+package runnable;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -13,7 +13,7 @@ import CohortDataClasses.CohortSectionAssignment;
 import CohortDataClasses.Section;
 import CohortScoring.cohortScoring;
 import CohortsSolverData.CohortSolution;
-public class OptaplannerStart implements Runnable {
+public class ScheduleRunnable implements Runnable {
 	private CohortSolution solutions[];
 	private boolean finished;
 	public void run() {
@@ -25,7 +25,7 @@ public class OptaplannerStart implements Runnable {
 		return finished;
 	}
 	
-	public OptaplannerStart(CohortSolution solutions[]) {
+	public ScheduleRunnable(CohortSolution solutions[]) {
 		this.solutions = solutions;
 	}
 	
@@ -37,10 +37,16 @@ public class OptaplannerStart implements Runnable {
     		Solver<CohortSolution> solver = factory.buildSolver();
     		cohortScoring score = new cohortScoring();
     		for(int i = 0; i<1 ;i++){
+    			Thread.currentThread();
+				if(Thread.interrupted())
+    				return;
     			System.out.println("Before: " + score.calculateScore(solutions[i]));
     			solutions[i] = (CohortSolution)solver.solve(solutions[i]);
     			System.out.println("After: " + score.calculateScore(solutions[i]));
     		}
+    		Thread.currentThread();
+			if(Thread.interrupted())
+				return;
     		recordSolutions(solutions);
     	}catch(Exception e) {
     		e.printStackTrace();

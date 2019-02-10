@@ -1,6 +1,4 @@
-package Controllers;
-import scheduler.OptaplannerStart;
-
+package runnable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -13,8 +11,7 @@ import CohortDataClasses.Course;
 import CohortDataClasses.FileReader;
 import CohortDataClasses.Section;
 import CohortsSolverData.CohortSolution;
-import DataModels.*;
-import DataModels.Requirement;
+import dataModels.*;
 public class CohortRunnableFactory {
 	
 	private static void verifyClassesExist(List<Course> courseList, List<Cohort> cohortList) throws Exception {
@@ -98,38 +95,15 @@ public class CohortRunnableFactory {
 		return sol;
 	}
 	
-	private static List<Cohort> putAssignmentsInCohorts(CohortSolution solution) {
-		Map<String,List<Section>> sectMap = new HashMap<>();
-		for(CohortSectionAssignment csa: solution.getAssignments()) {
-			if(sectMap.containsKey(csa.getMyCohort().getName())) {
-				List<Section> temp = sectMap.get(csa.getMyCohort().getName());
-				temp.add(csa.getAssignment());
-				sectMap.put(csa.getMyCohort().getName(),temp);
-			}else {
-				List<Section> temp = new ArrayList<>();
-				temp.add(csa.getAssignment());
-				sectMap.put(csa.getMyCohort().getName(), temp);
-			}
-		}
-		List<String> cohortNames = new ArrayList<String>(sectMap.keySet());
-		List<Cohort> cohorts = new ArrayList<>();
-		for(String name:cohortNames) {
-			Cohort coh = new Cohort();
-			coh.setName(name);
-			coh.setClassAssignments(sectMap.get(name));
-			cohorts.add(coh);
-		}
-		return cohorts;
-	}
 	
-	public static OptaplannerStart checkInputAndCreate(StartRequest request) {
+	public static ScheduleRunnable checkInputAndCreate(StartRequest request) {
 		//each course object should have a non empty list of sections and a name
 		//each section object should have all fields initialized
 		List<Course> courseList = new ArrayList<Course>(); 
 		try {
 		FileReader.readClassFile("CEAS_Course_Offerings_Fall_2018.csv", courseList);
 		FileReader.readClassFile("CAS-STEM_Course_Offerings_Fall_2018.csv", courseList);
-		List<Cohort> cohortList = FileReader.readCohortFile("cohortReqsLarge.csv");
+		List<Cohort> cohortList = createCohorts(request.getRequirements());
 		
 		for(Course c:courseList) {
 			for(Section s:c.getSections())
@@ -141,7 +115,7 @@ public class CohortRunnableFactory {
 		//Alex Write init function
 		CohortSolution solutions[] = initializeSolution(1, cohortList, courseList);
 		//recordSolutions(solutions);
-		return new OptaplannerStart(solutions);
+		return new ScheduleRunnable(solutions);
 		}
 		catch(Exception e) {
 			System.err.println(e.getMessage());

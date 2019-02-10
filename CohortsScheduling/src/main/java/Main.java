@@ -1,27 +1,19 @@
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import Controllers.CohortRestController;
-@SpringBootApplication
-import org.optaplanner.core.api.solver.*;
+import controller.ScheduleController;
 import CohortsSolverData.CohortSolution; 
 import CohortDataClasses.*;
-import java.io.FileNotFoundException;
 import java.util.*;
-import CohortScoring.cohortScoring;
-
 import org.apache.http.NameValuePair;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
-import org.apache.http.entity.ContentType;
-import org.apache.http.entity.InputStreamEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
-import org.apache.http.util.EntityUtils;
 
-
+@SpringBootApplication
 public class Main {
 	public static void main(String[] args) {
-		CohortRestController.init();
+		ScheduleController.init();
 		SpringApplication.run(Main.class,args);
 	}
 	
