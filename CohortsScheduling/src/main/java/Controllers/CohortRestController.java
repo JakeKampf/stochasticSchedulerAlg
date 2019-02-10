@@ -3,7 +3,8 @@ import scheduler.OptaplannerStart;
 import org.springframework.boot.*;
 import org.springframework.boot.autoconfigure.*;
 import org.springframework.web.bind.annotation.*;
-import DataModels.*;
+
+import DataModels.StartRequest;
 @RestController
 public class CohortRestController {
 	private static boolean cohortCalcRunning;
@@ -21,7 +22,7 @@ public class CohortRestController {
 			return "Already running";
 		}
 		
-		currentScheduler = new OptaplannerStart(request.getFile(),request.getRequirements(),request.getCount());
+		currentScheduler = CohortRunnableFactory.checkInputAndCreate(request);
 		
 		optThread = new Thread(currentScheduler);
 		optThread.start();

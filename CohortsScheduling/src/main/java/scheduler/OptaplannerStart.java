@@ -1,8 +1,6 @@
 package scheduler;
 
 import java.util.ArrayList;
-import org.springframework.web.multipart.*;
-import DataModels.Requirement;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -10,43 +8,28 @@ import java.util.Map;
 import org.optaplanner.core.api.solver.Solver;
 import org.optaplanner.core.api.solver.SolverFactory;
 
-import CohortDataClasses.ClassRequirement;
 import CohortDataClasses.Cohort;
 import CohortDataClasses.CohortSectionAssignment;
-import CohortDataClasses.Course;
-import CohortDataClasses.FileReader;
 import CohortDataClasses.Section;
 import CohortScoring.cohortScoring;
 import CohortsSolverData.CohortSolution;
-import org.optaplanner.core.api.solver.*;
-import CohortsSolverData.CohortSolution; 
-import CohortDataClasses.*;
-
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.*;
-import CohortScoring.cohortScoring;
 public class OptaplannerStart implements Runnable {
-	private MultipartFile inputFile;
-	private int count;
-	private List<Requirement> reqs;
+	private CohortSolution solutions[];
 	private boolean finished;
 	public void run() {
 		finished = false;
-		scheduleRunner(inputFile,reqs,count);
+		scheduleRunner(solutions);
 	}
 	
 	public boolean isFinished() {
 		return finished;
 	}
 	
-	public OptaplannerStart(MultipartFile file,List<Requirement> reqs,int count) {
-		this.count = count;
-		this.inputFile = file;
-		this.reqs = reqs;
+	public OptaplannerStart(CohortSolution solutions[]) {
+		this.solutions = solutions;
 	}
 	
-	public static void scheduleRunner(CohortSolution solutions[],List<Requirement> reqs,int count)
+	public static void scheduleRunner(CohortSolution solutions[])
     {
     	try {
     		
@@ -92,5 +75,28 @@ public class OptaplannerStart implements Runnable {
 			}
 		}
 		
+	}
+	private static List<Cohort> putAssignmentsInCohorts(CohortSolution solution) {
+		Map<String,List<Section>> sectMap = new HashMap<>();
+		for(CohortSectionAssignment csa: solution.getAssignments()) {
+			if(sectMap.containsKey(csa.getMyCohort().getName())) {
+				List<Section> temp = sectMap.get(csa.getMyCohort().getName());
+				temp.add(csa.getAssignment());
+				sectMap.put(csa.getMyCohort().getName(),temp);
+			}else {
+				List<Section> temp = new ArrayList<>();
+				temp.add(csa.getAssignment());
+				sectMap.put(csa.getMyCohort().getName(), temp);
+			}
+		}
+		List<String> cohortNames = new ArrayList<String>(sectMap.keySet());
+		List<Cohort> cohorts = new ArrayList<>();
+		for(String name:cohortNames) {
+			Cohort coh = new Cohort();
+			coh.setName(name);
+			coh.setClassAssignments(sectMap.get(name));
+			cohorts.add(coh);
+		}
+		return cohorts;
 	}
 }

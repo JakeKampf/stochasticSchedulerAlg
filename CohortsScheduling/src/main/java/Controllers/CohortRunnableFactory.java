@@ -14,7 +14,7 @@ import CohortDataClasses.FileReader;
 import CohortDataClasses.Section;
 import CohortsSolverData.CohortSolution;
 import DataModels.*;
-
+import DataModels.Requirement;
 public class CohortRunnableFactory {
 	
 	private static void verifyClassesExist(List<Course> courseList, List<Cohort> cohortList) throws Exception {
@@ -36,7 +36,26 @@ public class CohortRunnableFactory {
 			}
 		}
 	}
-
+	
+	private static List<Cohort> createCohorts(List<Requirement> requirements){
+		HashMap<String,Cohort> cohorts = new HashMap<String,Cohort>();
+		Cohort c;
+		for (Requirement r : requirements) {
+			c = cohorts.get(r.getCohort());
+			if(c==null) {
+				c = new Cohort();
+				c.setName(r.getCohort());
+				cohorts.put(r.getCohort(),c);
+			}
+			ClassRequirement req = new ClassRequirement();
+			req.setClassName(r.getCourse());
+			req.setSeatsNeeded(r.getSeatsNeeded());
+			req.setSectionsAllowed(r.getSectionsAllowed());
+			c.addReq(req);
+		}
+		return new ArrayList<Cohort>(cohorts.values());
+	}
+	
 	private static CohortSolution[] initializeSolution(int count, List<Cohort> cohorts, List<Course> courses) throws Exception {
 		CohortSolution[] problems = new CohortSolution[count];
 		List<CohortSectionAssignment> csa = new ArrayList<>();
@@ -122,11 +141,11 @@ public class CohortRunnableFactory {
 		//Alex Write init function
 		CohortSolution solutions[] = initializeSolution(1, cohortList, courseList);
 		//recordSolutions(solutions);
+		return new OptaplannerStart(solutions);
 		}
 		catch(Exception e) {
 			System.err.println(e.getMessage());
 			return null;
 		}
-		return null;
 	}
 }
