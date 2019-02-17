@@ -1,6 +1,7 @@
 package runnable;
 
 import java.util.ArrayList;
+import scheduleDAO.ScheduleDAO;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -47,7 +48,9 @@ public class ScheduleRunnable implements Runnable {
     		Thread.currentThread();
 			if(Thread.interrupted())
 				return;
-    		recordSolutions(solutions);
+    		for(CohortSolution s: solutions) {
+    			ScheduleDAO.writeToDB(s);
+    		}
     	}catch(Exception e) {
     		e.printStackTrace();
     	}
@@ -56,53 +59,53 @@ public class ScheduleRunnable implements Runnable {
     	
     }
 
-	private static void recordSolutions(CohortSolution[] solutions) {
-		for(CohortSolution s: solutions) {
-			System.out.println(s.getAssignments().get(0).getAssignment().getName());
-			System.out.println("\nSolution");
-			List<Cohort> cohorts = putAssignmentsInCohorts(s);
-			for(Cohort c: cohorts) {
-				System.out.println("Cohort "+c.getName()+" classes:");
-				for(Section sect:c.getClassAssignments()) {
-					if(sect.getStartTime()!=null) {
-						System.out.println("Class: "+sect.getName()
-						+" Section: "+sect.getSectionId()
-						+" Days: "+sect.getDaysOfWeek()
-						+" Time: "+ sect.getStartTime().toString()
-						+" - "+sect.getEndTime().toString());
-					}else {
-						System.out.println("Class: "+sect.getName()
-						+" Section: "+sect.getSectionId()
-						+" Days: "+sect.getDaysOfWeek()
-						+" ONLINE");
-					}
-						
-				}
-			}
-		}
-		
-	}
-	private static List<Cohort> putAssignmentsInCohorts(CohortSolution solution) {
-		Map<String,List<Section>> sectMap = new HashMap<>();
-		for(CohortSectionAssignment csa: solution.getAssignments()) {
-			if(sectMap.containsKey(csa.getMyCohort().getName())) {
-				List<Section> temp = sectMap.get(csa.getMyCohort().getName());
-				temp.add(csa.getAssignment());
-				sectMap.put(csa.getMyCohort().getName(),temp);
-			}else {
-				List<Section> temp = new ArrayList<>();
-				temp.add(csa.getAssignment());
-				sectMap.put(csa.getMyCohort().getName(), temp);
-			}
-		}
-		List<String> cohortNames = new ArrayList<String>(sectMap.keySet());
-		List<Cohort> cohorts = new ArrayList<>();
-		for(String name:cohortNames) {
-			Cohort coh = new Cohort();
-			coh.setName(name);
-			coh.setClassAssignments(sectMap.get(name));
-			cohorts.add(coh);
-		}
-		return cohorts;
-	}
+//	private static void recordSolutions(CohortSolution[] solutions) {
+//		for(CohortSolution s: solutions) {
+//			System.out.println(s.getAssignments().get(0).getAssignment().getName());
+//			System.out.println("\nSolution");
+//			List<Cohort> cohorts = putAssignmentsInCohorts(s);
+//			for(Cohort c: cohorts) {
+//				System.out.println("Cohort "+c.getName()+" classes:");
+//				for(Section sect:c.getClassAssignments()) {
+//					if(sect.getStartTime()!=null) {
+//						System.out.println("Class: "+sect.getName()
+//						+" Section: "+sect.getSectionId()
+//						+" Days: "+sect.getDaysOfWeek()
+//						+" Time: "+ sect.getStartTime().toString()
+//						+" - "+sect.getEndTime().toString());
+//					}else {
+//						System.out.println("Class: "+sect.getName()
+//						+" Section: "+sect.getSectionId()
+//						+" Days: "+sect.getDaysOfWeek()
+//						+" ONLINE");
+//					}
+//						
+//				}
+//			}
+//		}
+//		
+//	}
+//	private static List<Cohort> putAssignmentsInCohorts(CohortSolution solution) {
+//		Map<String,List<Section>> sectMap = new HashMap<>();
+//		for(CohortSectionAssignment csa: solution.getAssignments()) {
+//			if(sectMap.containsKey(csa.getMyCohort().getName())) {
+//				List<Section> temp = sectMap.get(csa.getMyCohort().getName());
+//				temp.add(csa.getAssignment());
+//				sectMap.put(csa.getMyCohort().getName(),temp);
+//			}else {
+//				List<Section> temp = new ArrayList<>();
+//				temp.add(csa.getAssignment());
+//				sectMap.put(csa.getMyCohort().getName(), temp);
+//			}
+//		}
+//		List<String> cohortNames = new ArrayList<String>(sectMap.keySet());
+//		List<Cohort> cohorts = new ArrayList<>();
+//		for(String name:cohortNames) {
+//			Cohort coh = new Cohort();
+//			coh.setName(name);
+//			coh.setClassAssignments(sectMap.get(name));
+//			cohorts.add(coh);
+//		}
+//		return cohorts;
+//	}
 }
