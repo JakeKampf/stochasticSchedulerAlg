@@ -13,6 +13,13 @@ public class Requirement {
 		this.sectionsAllowed = sectionsAllowed;
 	}
 	
+	public Requirement() {
+		this.cohort = null;
+		this.course = null;
+		this.seatsNeeded = 0;
+		this.sectionsAllowed = null;
+	}
+	
 	public String getCohort() {
 		return cohort;
 	}
@@ -25,5 +32,19 @@ public class Requirement {
 	
 	public int getSeatsNeeded() {
 		return seatsNeeded;
+	}
+	
+	public void setCohort(String cohort) {
+		this.cohort = cohort;
+	}
+	public void setCourse(String course) {
+		this.course = course;
+	}
+	public void setSectionsAllowed(String sectionsAllowed) {
+		this.sectionsAllowed = sectionsAllowed;
+	}
+	
+	public void setSeatsNeeded(int seatsNeeded) {
+		this.seatsNeeded = seatsNeeded;
 	}
 }

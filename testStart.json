@@ -1,0 +1,605 @@
+{
+	"requirements" : [
+  {
+    "cohort": "BIOS1",
+    "course": "BIOS1600",
+    "seatsNeeded": 18,
+    "sectionsAllowed": ""
+  },
+  {
+    "cohort": "BIOS1",
+    "course": "ENGL1050",
+    "seatsNeeded": 18,
+    "sectionsAllowed": ""
+  },
+  {
+    "cohort": "BIOS1",
+    "course": "MATH1220",
+    "seatsNeeded": 18,
+    "sectionsAllowed": ""
+  },
+  {
+    "cohort": "BIOS2",
+    "course": "BIOS1600",
+    "seatsNeeded": 18,
+    "sectionsAllowed": ""
+  },
+  {
+    "cohort": "BIOS2",
+    "course": "ENGL1050",
+    "seatsNeeded": 18,
+    "sectionsAllowed": ""
+  },
+  {
+    "cohort": "BIOS2",
+    "course": "MATH1180",
+    "seatsNeeded": 18,
+    "sectionsAllowed": ""
+  },
+  {
+    "cohort": "BIOS3",
+    "course": "BIOS1600",
+    "seatsNeeded": 18,
+    "sectionsAllowed": ""
+  },
+  {
+    "cohort": "BIOS3",
+    "course": "ENGL1050",
+    "seatsNeeded": 18,
+    "sectionsAllowed": ""
+  },
+  {
+    "cohort": "BIOS3",
+    "course": "MATH1110",
+    "seatsNeeded": 18,
+    "sectionsAllowed": ""
+  },
+  {
+    "cohort": "BIOS4",
+    "course": "BIOS1600",
+    "seatsNeeded": 18,
+    "sectionsAllowed": ""
+  },
+  {
+    "cohort": "BIOS4",
+    "course": "ENGL1050",
+    "seatsNeeded": 18,
+    "sectionsAllowed": ""
+  },
+  {
+    "cohort": "BIOS4",
+    "course": "MATH1220",
+    "seatsNeeded": 6,
+    "sectionsAllowed": ""
+  },
+  {
+    "cohort": "BIOS4",
+    "course": "MATH1180",
+    "seatsNeeded": 6,
+    "sectionsAllowed": ""
+  },
+  {
+    "cohort": "BIOS4",
+    "course": "MATH1110",
+    "seatsNeeded": 6,
+    "sectionsAllowed": ""
+  },
+  {
+    "cohort": "ENV1",
+    "course": "GEOS1300",
+    "seatsNeeded": 18,
+    "sectionsAllowed": ""
+  },
+  {
+    "cohort": "ENV1",
+    "course": "ENGL1050",
+    "seatsNeeded": 18,
+    "sectionsAllowed": ""
+  },
+  {
+    "cohort": "ENV1",
+    "course": "MATH1110",
+    "seatsNeeded": 6,
+    "sectionsAllowed": ""
+  },
+  {
+    "cohort": "ENV1",
+    "course": "MATH1180",
+    "seatsNeeded": 6,
+    "sectionsAllowed": ""
+  },
+  {
+    "cohort": "ENV1",
+    "course": "MATH1220",
+    "seatsNeeded": 6,
+    "sectionsAllowed": ""
+  },
+  {
+    "cohort": "HON1",
+    "course": "IEE1020",
+    "seatsNeeded": 24,
+    "sectionsAllowed": ""
+  },
+  {
+    "cohort": "HON1",
+    "course": "MATH1220",
+    "seatsNeeded": 24,
+    "sectionsAllowed": ""
+  },
+  {
+    "cohort": "HON1",
+    "course": "CHEM1100",
+    "seatsNeeded": 24,
+    "sectionsAllowed": ""
+  },
+  {
+    "cohort": "HON1",
+    "course": "CHEG1010",
+    "seatsNeeded": 12,
+    "sectionsAllowed": ""
+  },
+  {
+    "cohort": "HON1",
+    "course": "PAPR1000",
+    "seatsNeeded": 12,
+    "sectionsAllowed": ""
+  },
+  {
+    "cohort": "HON2",
+    "course": "IEE1020",
+    "seatsNeeded": 24,
+    "sectionsAllowed": ""
+  },
+  {
+    "cohort": "HON2",
+    "course": "MATH1700",
+    "seatsNeeded": 24,
+    "sectionsAllowed": ""
+  },
+  {
+    "cohort": "HON2",
+    "course": "CHEM1100",
+    "seatsNeeded": 24,
+    "sectionsAllowed": ""
+  },
+  {
+    "cohort": "HON2",
+    "course": "EDMM1420",
+    "seatsNeeded": 24,
+    "sectionsAllowed": ""
+  },
+  {
+    "cohort": "HON3",
+    "course": "IEE1020",
+    "seatsNeeded": 24,
+    "sectionsAllowed": ""
+  },
+  {
+    "cohort": "HON3",
+    "course": "MATH1700",
+    "seatsNeeded": 24,
+    "sectionsAllowed": ""
+  },
+  {
+    "cohort": "HON3",
+    "course": "CHEM1100",
+    "seatsNeeded": 24,
+    "sectionsAllowed": ""
+  },
+  {
+    "cohort": "HON3",
+    "course": "EDMM1420",
+    "seatsNeeded": 24,
+    "sectionsAllowed": ""
+  },
+  {
+    "cohort": "HON4",
+    "course": "IEE1020",
+    "seatsNeeded": 24,
+    "sectionsAllowed": ""
+  },
+  {
+    "cohort": "HON4",
+    "course": "MATH1220",
+    "seatsNeeded": 24,
+    "sectionsAllowed": ""
+  },
+  {
+    "cohort": "HON4",
+    "course": "CHEM1100",
+    "seatsNeeded": 24,
+    "sectionsAllowed": ""
+  },
+  {
+    "cohort": "HON4",
+    "course": "EDMM1420",
+    "seatsNeeded": 12,
+    "sectionsAllowed": ""
+  },
+  {
+    "cohort": "HON4",
+    "course": "CS1110",
+    "seatsNeeded": 12,
+    "sectionsAllowed": ""
+  },
+  {
+    "cohort": "HON5",
+    "course": "MATH1700",
+    "seatsNeeded": 24,
+    "sectionsAllowed": ""
+  },
+  {
+    "cohort": "HON5",
+    "course": "CHEM1100",
+    "seatsNeeded": 24,
+    "sectionsAllowed": ""
+  },
+  {
+    "cohort": "HON5",
+    "course": "EDMM1420",
+    "seatsNeeded": 24,
+    "sectionsAllowed": ""
+  },
+  {
+    "cohort": "CHEG",
+    "course": "CHEG1010",
+    "seatsNeeded": 24,
+    "sectionsAllowed": ""
+  },
+  {
+    "cohort": "CHEG",
+    "course": "CHEM1100",
+    "seatsNeeded": 24,
+    "sectionsAllowed": ""
+  },
+  {
+    "cohort": "CHEG",
+    "course": "IEE1020",
+    "seatsNeeded": 24,
+    "sectionsAllowed": ""
+  },
+  {
+    "cohort": "CHEG",
+    "course": "MATH1180",
+    "seatsNeeded": 12,
+    "sectionsAllowed": ""
+  },
+  {
+    "cohort": "CHEG",
+    "course": "MATH1220",
+    "seatsNeeded": 12,
+    "sectionsAllowed": ""
+  },
+  {
+    "cohort": "CCE",
+    "course": "IEE1020",
+    "seatsNeeded": 24,
+    "sectionsAllowed": ""
+  },
+  {
+    "cohort": "CCE",
+    "course": "EDMM1420",
+    "seatsNeeded": 24,
+    "sectionsAllowed": ""
+  },
+  {
+    "cohort": "CCE",
+    "course": "CHEM1100",
+    "seatsNeeded": 12,
+    "sectionsAllowed": ""
+  },
+  {
+    "cohort": "CCE",
+    "course": "MATH1700",
+    "seatsNeeded": 12,
+    "sectionsAllowed": ""
+  },
+  {
+    "cohort": "CCE",
+    "course": "MATH1180",
+    "seatsNeeded": 12,
+    "sectionsAllowed": ""
+  },
+  {
+    "cohort": "AERO",
+    "course": "CHEM1100",
+    "seatsNeeded": 24,
+    "sectionsAllowed": ""
+  },
+  {
+    "cohort": "AERO",
+    "course": "IEE1020",
+    "seatsNeeded": 24,
+    "sectionsAllowed": ""
+  },
+  {
+    "cohort": "AERO",
+    "course": "EDMM1420",
+    "seatsNeeded": 24,
+    "sectionsAllowed": ""
+  },
+  {
+    "cohort": "AERO",
+    "course": "MATH1700",
+    "seatsNeeded": 12,
+    "sectionsAllowed": ""
+  },
+  {
+    "cohort": "AERO",
+    "course": "MATH1180",
+    "seatsNeeded": 12,
+    "sectionsAllowed": ""
+  },
+  {
+    "cohort": "CS",
+    "course": "CS1110",
+    "seatsNeeded": 24,
+    "sectionsAllowed": ""
+  },
+  {
+    "cohort": "CS",
+    "course": "MATH1220",
+    "seatsNeeded": 12,
+    "sectionsAllowed": ""
+  },
+  {
+    "cohort": "CS",
+    "course": "MATH1180",
+    "seatsNeeded": 12,
+    "sectionsAllowed": ""
+  },
+  {
+    "cohort": "CS",
+    "course": "IEE1020",
+    "seatsNeeded": 24,
+    "sectionsAllowed": ""
+  },
+  {
+    "cohort": "ECE",
+    "course": "ECE2500",
+    "seatsNeeded": 24,
+    "sectionsAllowed": ""
+  },
+  {
+    "cohort": "ECE",
+    "course": "IEE1020",
+    "seatsNeeded": 24,
+    "sectionsAllowed": ""
+  },
+  {
+    "cohort": "ECE",
+    "course": "CHEM1100",
+    "seatsNeeded": 24,
+    "sectionsAllowed": ""
+  },
+  {
+    "cohort": "ECE",
+    "course": "MATH1700",
+    "seatsNeeded": 12,
+    "sectionsAllowed": ""
+  },
+  {
+    "cohort": "ECE",
+    "course": "MATH1180",
+    "seatsNeeded": 12,
+    "sectionsAllowed": ""
+  },
+  {
+    "cohort": "EXP1",
+    "course": "ENGR2100",
+    "seatsNeeded": 24,
+    "sectionsAllowed": ""
+  },
+  {
+    "cohort": "EXP1",
+    "course": "MATH1110",
+    "seatsNeeded": 24,
+    "sectionsAllowed": ""
+  },
+  {
+    "cohort": "EXP1",
+    "course": "EDMM1420",
+    "seatsNeeded": 24,
+    "sectionsAllowed": ""
+  },
+  {
+    "cohort": "EXP2",
+    "course": "ENGR2100",
+    "seatsNeeded": 24,
+    "sectionsAllowed": ""
+  },
+  {
+    "cohort": "EXP2",
+    "course": "MATH1110",
+    "seatsNeeded": 24,
+    "sectionsAllowed": ""
+  },
+  {
+    "cohort": "EXP2",
+    "course": "EDMM1420",
+    "seatsNeeded": 24,
+    "sectionsAllowed": ""
+  },
+  {
+    "cohort": "EXP3",
+    "course": "ENGR2100",
+    "seatsNeeded": 24,
+    "sectionsAllowed": ""
+  },
+  {
+    "cohort": "EXP3",
+    "course": "MATH1110",
+    "seatsNeeded": 24,
+    "sectionsAllowed": ""
+  },
+  {
+    "cohort": "EXP3",
+    "course": "EDMM1420",
+    "seatsNeeded": 24,
+    "sectionsAllowed": ""
+  },
+  {
+    "cohort": "EXP4",
+    "course": "ENGR2100",
+    "seatsNeeded": 24,
+    "sectionsAllowed": ""
+  },
+  {
+    "cohort": "EXP4",
+    "course": "MATH1110",
+    "seatsNeeded": 24,
+    "sectionsAllowed": ""
+  },
+  {
+    "cohort": "EXP5",
+    "course": "ENGR2100",
+    "seatsNeeded": 24,
+    "sectionsAllowed": ""
+  },
+  {
+    "cohort": "EXP5",
+    "course": "MATH1110",
+    "seatsNeeded": 24,
+    "sectionsAllowed": ""
+  },
+  {
+    "cohort": "MAE1",
+    "course": "IEE1020",
+    "seatsNeeded": 24,
+    "sectionsAllowed": ""
+  },
+  {
+    "cohort": "MAE1",
+    "course": "CHEM1100",
+    "seatsNeeded": 24,
+    "sectionsAllowed": ""
+  },
+  {
+    "cohort": "MAE1",
+    "course": "EDMM1420",
+    "seatsNeeded": 24,
+    "sectionsAllowed": ""
+  },
+  {
+    "cohort": "MAE1",
+    "course": "MATH1700",
+    "seatsNeeded": 24,
+    "sectionsAllowed": ""
+  },
+  {
+    "cohort": "IEE",
+    "course": "IEE1020",
+    "seatsNeeded": 24,
+    "sectionsAllowed": ""
+  },
+  {
+    "cohort": "IEE",
+    "course": "EDMM1420",
+    "seatsNeeded": 24,
+    "sectionsAllowed": ""
+  },
+  {
+    "cohort": "IEE",
+    "course": "MATH1220",
+    "seatsNeeded": 8,
+    "sectionsAllowed": ""
+  },
+  {
+    "cohort": "IEE",
+    "course": "MATH1700",
+    "seatsNeeded": 8,
+    "sectionsAllowed": ""
+  },
+  {
+    "cohort": "IEE",
+    "course": "MATH1180",
+    "seatsNeeded": 8,
+    "sectionsAllowed": ""
+  },
+  {
+    "cohort": "IEE",
+    "course": "CHEM1100",
+    "seatsNeeded": 24,
+    "sectionsAllowed": ""
+  },
+  {
+    "cohort": "MAE2",
+    "course": "IEE1020",
+    "seatsNeeded": 24,
+    "sectionsAllowed": ""
+  },
+  {
+    "cohort": "MAE2",
+    "course": "CHEM1100",
+    "seatsNeeded": 24,
+    "sectionsAllowed": ""
+  },
+  {
+    "cohort": "MAE2",
+    "course": "MATH1180",
+    "seatsNeeded": 24,
+    "sectionsAllowed": ""
+  },
+  {
+    "cohort": "MAE2",
+    "course": "EDMM1420",
+    "seatsNeeded": 24,
+    "sectionsAllowed": ""
+  },
+  {
+    "cohort": "PAPR",
+    "course": "PAPR1000",
+    "seatsNeeded": 24,
+    "sectionsAllowed": ""
+  },
+  {
+    "cohort": "PAPR",
+    "course": "CHEM1100",
+    "seatsNeeded": 24,
+    "sectionsAllowed": ""
+  },
+  {
+    "cohort": "PAPR",
+    "course": "IEE1020",
+    "seatsNeeded": 24,
+    "sectionsAllowed": ""
+  },
+  {
+    "cohort": "PAPR",
+    "course": "MATH1220",
+    "seatsNeeded": 12,
+    "sectionsAllowed": ""
+  },
+  {
+    "cohort": "PAPR",
+    "course": "MATH1180",
+    "seatsNeeded": 12,
+    "sectionsAllowed": ""
+  },
+  {
+    "cohort": "UND",
+    "course": "IEE1020",
+    "seatsNeeded": 24,
+    "sectionsAllowed": ""
+  },
+  {
+    "cohort": "UND",
+    "course": "CHEM1100",
+    "seatsNeeded": 24,
+    "sectionsAllowed": ""
+  },
+  {
+    "cohort": "UND",
+    "course": "MATH1700",
+    "seatsNeeded": 12,
+    "sectionsAllowed": ""
+  },
+  {
+    "cohort": "UND",
+    "course": "MATH1180",
+    "seatsNeeded": 12,
+    "sectionsAllowed": ""
+  }
+],
+	"count" : 20
+}

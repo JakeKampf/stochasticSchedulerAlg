@@ -11,7 +11,7 @@ import dataModels.StartRequest;
 @Controller
 @RequestMapping(value="/api")
 public class RestService {
-	
+	@ResponseBody
 	@PostMapping("/start")
 	public static String start(@RequestBody StartRequest request) {
 		return ScheduleController.start(request);
@@ -23,6 +23,7 @@ public class RestService {
 		return ScheduleController.status();
 		
 	}
+	@ResponseBody
 	@PostMapping("/cancel")
 	public static String cancel() {
 		return ScheduleController.cancel();

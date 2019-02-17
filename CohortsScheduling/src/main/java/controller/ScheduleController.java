@@ -140,7 +140,6 @@ public class ScheduleController {
 	 * End Private helper methods
 	 * End Private helper methods
 	 */
-	
 	public static String start(StartRequest request) {
 		if(optThread != null && optThread.isAlive()) {
 			return "Already running";
@@ -172,7 +171,7 @@ public class ScheduleController {
 		}
 		optThread = new Thread(currentScheduler);
 		optThread.start();
-		return "Started";
+		return "{ \"Status\" : \"Started\" }";
 	}
 	
 	public static String status() {
@@ -193,12 +192,12 @@ public class ScheduleController {
 	}
 	
 	public static String cancel() {
-		if(optThread.isAlive()) {
+		if(optThread != null && optThread.isAlive()) {
 			optThread.interrupt();
-			return "Scheduling will stop at next exit point";
+			return "{ \"Message\" : \"Scheduling will stop at next exit point\" }";
 		}
 		
-		return "No active scheduler";
+		return "{ \"Message\" : \"No active scheduler\" }";
 	}
 
 }
