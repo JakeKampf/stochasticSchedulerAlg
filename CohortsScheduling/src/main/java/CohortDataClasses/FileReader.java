@@ -236,7 +236,7 @@ public class FileReader {
 	 * The following code will be for reading from a Microsoft Excel file, rather
 	 * than reading from a .csv file like the code above
 	 * Excel reading code used from
-	 * https://ww.callicoder.com/java-read-excel-file-apache-poi/
+	 * https://ww.callicoder.com/java-read-excel-file-apache-poi/ 
 	 */
 	public static void readCourseExcel(String fileName, List<Course> courseList)
 			throws EncryptedDocumentException, InvalidFormatException, IOException {
@@ -244,8 +244,6 @@ public class FileReader {
 		Workbook workbook = WorkbookFactory.create(new File(fileName));
 		Sheet sheet = workbook.getSheetAt(0);
 		DataFormatter dataFormatter = new DataFormatter();
-		Course course = new Course();
-		Course temp = new Course();
 		List<Section> sections = new ArrayList<Section>();
 		Section section = new Section();
 
@@ -260,31 +258,14 @@ public class FileReader {
 
 				String cellValue = dataFormatter.formatCellValue(cell);
 
-				if (rowNum > 0) // to skip title row
+				if (rowNum > 0) // to skip title row 
+					
 					switch (colNum) {
 
 					case 0: // do nothing
 						break;
 					case 1: // course name + section name
-						if (course.getName() == null) {
-							course.setName(cellValue);
-							section.setName(cellValue);
-						}
-						if (course.getName() != null && course.getName().compareToIgnoreCase(cellValue) == 0) {
-							section.setName(cellValue);
-						} else if (course.getName() != null && course.getName().compareToIgnoreCase(cellValue) != 0) {
-							// it is a new course, so add finished course object to course list and reset
-							course.setSections(sections);
-							courseList.add(course);
-							sections = new ArrayList<Section>();
-							course = new Course();
-							section = new Section();
-
-							// begin new course object
-							course.setName(cellValue);
-							section.setName(cellValue);
-						}
-
+						section.setName(cellValue);
 						break;
 					case 2: // crn
 						section.setCrn(Integer.parseInt(cellValue));
@@ -292,14 +273,8 @@ public class FileReader {
 					case 3: // sections
 						section.setSectionId(cellValue);
 						break;
-					case 4: // do nothing
-						break;
 					case 5: // link
 						section.setLink(cellValue);
-						break;
-					case 6: // do nothing
-						break;
-					case 7: // do nothing
 						break;
 					case 8: // days of week
 						section.setDaysOfWeek(cellValue);
@@ -322,18 +297,46 @@ public class FileReader {
 						section.setInstructor(cellValue);
 						break;
 					case 13: // unit size
-						course.setUnitSize(Integer.parseInt(cellValue));
-						sections.add(section);
+						section.setSeats(Integer.parseInt(cellValue));
+						
 						break;
 					
 
-					}
+					}  
+				
+				sections.add(section);
 
 				colNum++;
 			}
 
 		}
 
+	} 
+	
+	public static List<Course> separateSectionsIntoCourses(List<Section> sections){
+		List <Course>  courseList = new ArrayList<Course>();
+		
+		Map<String, List<Section>> mapping = new HashMap<>(); 
+		
+		for (Section section : sections) {
+			if (mapping.containsKey(section.getName())) {
+				List<Section> temp = mapping.get(section.getName());
+				temp.add(section);
+				mapping.put(section.getName(), temp);
+			} else {
+				List<Section> temp = new ArrayList<>();
+				temp.add(section);
+				mapping.put(section.getName(), temp);
+			}
+		}
+		for (String cName : mapping.keySet()) {
+			Course course = new Course();
+			course.setSections(mapping.get(cName));
+			course.setName(cName);
+			courseList.add(course);
+		}
+
+		return courseList;
 	}
 	
 	
