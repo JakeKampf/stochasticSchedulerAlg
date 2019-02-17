@@ -23,6 +23,7 @@ public class ScheduleController {
 	public static void init() {
 		cohortCalcRunning = false;
 		currentScheduler = null;
+		optThread = null;
 	}
 	
 	/*
@@ -167,7 +168,7 @@ public class ScheduleController {
 		currentScheduler = new ScheduleRunnable(solutions);
 		}
 		catch(Exception e) {
-			return "Failed to start. Error: " + e.getMessage();
+			return "{ \"Status\" : \"Failed to start\", \"Error\" : \"" + e.getMessage() + "\"}";
 		}
 		optThread = new Thread(currentScheduler);
 		optThread.start();
@@ -175,13 +176,19 @@ public class ScheduleController {
 	}
 	
 	public static String status() {
-		if(currentScheduler == null)
-			return "status: \"started\"";
-		else if(currentScheduler.isFinished()) {
-			return "status: \"finished\"";
+		if(optThread != null && currentScheduler != null && 
+				optThread.isAlive() && !currentScheduler.isFinished())
+			return "{ \"status\": \"started\" }";
+		else if(optThread != null && currentScheduler != null && 
+				!optThread.isAlive() && currentScheduler.isFinished()) {
+			return "{ \"status\": \"finished\" }";
+		}
+		else if(optThread != null && currentScheduler != null && 
+				!optThread.isAlive() && !currentScheduler.isFinished()) {
+			return "{ \"status\": \"canceled\" }";
 		}
 		else {
-			return "status: \"not finished\"";
+			return "{ \"status\": \"not started\" }";
 		}		
 	}
 	

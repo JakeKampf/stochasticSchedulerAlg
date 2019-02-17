@@ -30,7 +30,7 @@ public class ScheduleRunnable implements Runnable {
 		this.solutions = solutions;
 	}
 	
-	public static void scheduleRunner(CohortSolution solutions[])
+	public void scheduleRunner(CohortSolution solutions[])
     {
     	try {
     		
@@ -51,6 +51,7 @@ public class ScheduleRunnable implements Runnable {
     		for(CohortSolution s: solutions) {
     			ScheduleDAO.writeToDB(s);
     		}
+    		finished = true;
     	}catch(Exception e) {
     		e.printStackTrace();
     	}

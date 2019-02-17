@@ -1,13 +1,15 @@
-package service;
+package application;
 
 import org.springframework.boot.*;
 import org.springframework.boot.autoconfigure.*;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import runnable.ScheduleRunnable;
 
 import controller.ScheduleController;
 import dataModels.StartRequest;
-@RestController
+@Controller
+@RequestMapping(value="/api")
 public class RestService {
 	
 	@PostMapping("/start")
@@ -15,7 +17,8 @@ public class RestService {
 		return ScheduleController.start(request);
 		//starts scheduling
 	}
-	@GetMapping("/status")
+	@GetMapping(value="/status")
+	@ResponseBody
 	public static String status() {
 		return ScheduleController.status();
 		
