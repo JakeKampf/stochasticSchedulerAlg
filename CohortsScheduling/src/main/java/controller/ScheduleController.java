@@ -164,7 +164,7 @@ public class ScheduleController {
 		CohortSolution solutions[] = initializeSolution(1, cohortList, courseList);
 		//recordSolutions(solutions);
 		
-		currentScheduler = new ScheduleRunnable(solutions);
+		currentScheduler = new ScheduleRunnable(solutions, request.getName());
 		}
 		catch(Exception e) {
 			return "{ \"Status\" : \"Failed to start\", \"Error\" : \"" + e.getMessage() + "\"}";
