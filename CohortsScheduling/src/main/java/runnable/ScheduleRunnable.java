@@ -17,20 +17,22 @@ import CohortsSolverData.CohortSolution;
 public class ScheduleRunnable implements Runnable {
 	private CohortSolution solutions[];
 	private boolean finished;
+	private String name;
 	public void run() {
 		finished = false;
-		scheduleRunner(solutions);
+		scheduleRunner(solutions, name);
 	}
 	
 	public boolean isFinished() {
 		return finished;
 	}
 	
-	public ScheduleRunnable(CohortSolution solutions[]) {
+	public ScheduleRunnable(CohortSolution solutions[], String name) {
 		this.solutions = solutions;
+		this.name = name;
 	}
 	
-	public void scheduleRunner(CohortSolution solutions[])
+	public void scheduleRunner(CohortSolution solutions[], String name)
     {
     	try {
     		
@@ -49,7 +51,7 @@ public class ScheduleRunnable implements Runnable {
 			if(Thread.interrupted())
 				return;
     		for(CohortSolution s: solutions) {
-    			ScheduleDAO.writeToDB(s);
+    			ScheduleDAO.writeToDB(s, name);
     		}
     		finished = true;
     	}catch(Exception e) {
