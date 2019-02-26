@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <solver>
-  <scanAnnotatedClasses/>
+	<solutionClass>CohortsSolverData.CohortSolution</solutionClass>
+	<entityClass>CohortDataClasses.CohortSectionAssignment</entityClass>
 	<scoreDirectorFactory>
     	<easyScoreCalculatorClass>CohortScoring.cohortScoring</easyScoreCalculatorClass>
   	</scoreDirectorFactory>
